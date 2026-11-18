@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { background: #0A0A0D; overflow-x: hidden; }
+::selection { background: #FF5A1F; color: #0A0A0D; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0A0A0D; }
+::-webkit-scrollbar-thumb { background: #26262e; border-radius: 8px; }
+
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.22,1,.36,1) var(--d, 0ms), transform .8s cubic-bezier(.22,1,.36,1) var(--d, 0ms); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@keyframes marq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { animation: marq 26s linear infinite; }
+
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.floaty { animation: floaty 5s ease-in-out infinite; }
+
+.stage-bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 38%, rgba(255,90,31,.13), transparent 60%),
+    radial-gradient(ellipse 90% 60% at 50% 110%, rgba(70,90,255,.08), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 50% 45%, #1B1B23 0%, #0A0A0D 70%);
+}
+.grid-lines {
+  background-image: linear-gradient(rgba(244,241,234,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,234,.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 45%, black 30%, transparent 75%);
+}
+canvas { touch-action: pan-y; }
